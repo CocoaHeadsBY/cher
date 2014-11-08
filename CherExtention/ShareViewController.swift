@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import MobileCoreServices
 
 class ShareViewController: SLComposeServiceViewController {
 
@@ -24,8 +25,29 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func configurationItems() -> [AnyObject]! {
-        // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
         return NSArray()
+    }
+    
+    override func viewDidLoad() {
+        var image: UIImage
+        
+        for item: AnyObject in self.extensionContext!.inputItems {
+            let inputItem = item as NSExtensionItem
+            for provider: AnyObject in inputItem.attachments! {
+                let itemProvider = provider as NSItemProvider
+                if itemProvider.hasItemConformingToTypeIdentifier(kUTTypeImage as NSString) {
+                    itemProvider.loadItemForTypeIdentifier(kUTTypeImage as NSString, options: nil, completionHandler: { (image, error) in
+                        if image != nil {
+                            NSOperationQueue.mainQueue().addOperationWithBlock {
+                                println(image as? NSURL)
+                            }
+                        }
+                    })
+                    
+                    break
+                }
+            }
+        }
     }
 
 }
