@@ -13,6 +13,9 @@
 		503DC1A71A0E26F100FAC45F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503DC1A61A0E26F100FAC45F /* Images.xcassets */; };
 		503DC1AA1A0E26F100FAC45F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503DC1A81A0E26F100FAC45F /* LaunchScreen.xib */; };
 		503DC1B61A0E26F100FAC45F /* CherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DC1B51A0E26F100FAC45F /* CherTests.swift */; };
+		503DC1C81A0E27B400FAC45F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DC1C71A0E27B400FAC45F /* ShareViewController.swift */; };
+		503DC1CA1A0E27B400FAC45F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */; };
+		503DC1CD1A0E27B400FAC45F /* CherExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 503DC1C31A0E27B400FAC45F /* CherExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +26,28 @@
 			remoteGlobalIDString = 503DC1991A0E26F100FAC45F;
 			remoteInfo = Cher;
 		};
+		503DC1CB1A0E27B400FAC45F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 503DC1921A0E26F100FAC45F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 503DC1C21A0E27B400FAC45F;
+			remoteInfo = CherExtention;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		503DC1D11A0E27B500FAC45F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				503DC1CD1A0E27B400FAC45F /* CherExtention.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		503DC19A1A0E26F100FAC45F /* Cher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +60,10 @@
 		503DC1AF1A0E26F100FAC45F /* CherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503DC1B41A0E26F100FAC45F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503DC1B51A0E26F100FAC45F /* CherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherTests.swift; sourceTree = "<group>"; };
+		503DC1C31A0E27B400FAC45F /* CherExtention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CherExtention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		503DC1C61A0E27B400FAC45F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		503DC1C71A0E27B400FAC45F /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		503DC1C01A0E27B400FAC45F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +96,7 @@
 			children = (
 				503DC19C1A0E26F100FAC45F /* Cher */,
 				503DC1B21A0E26F100FAC45F /* CherTests */,
+				503DC1C41A0E27B400FAC45F /* CherExtention */,
 				503DC19B1A0E26F100FAC45F /* Products */,
 			);
 			indentWidth = 4;
@@ -72,6 +108,7 @@
 			children = (
 				503DC19A1A0E26F100FAC45F /* Cher.app */,
 				503DC1AF1A0E26F100FAC45F /* CherTests.xctest */,
+				503DC1C31A0E27B400FAC45F /* CherExtention.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +151,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		503DC1C41A0E27B400FAC45F /* CherExtention */ = {
+			isa = PBXGroup;
+			children = (
+				503DC1C71A0E27B400FAC45F /* ShareViewController.swift */,
+				503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */,
+				503DC1C51A0E27B400FAC45F /* Supporting Files */,
+			);
+			path = CherExtention;
+			sourceTree = "<group>";
+		};
+		503DC1C51A0E27B400FAC45F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				503DC1C61A0E27B400FAC45F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,10 +179,12 @@
 				503DC1961A0E26F100FAC45F /* Sources */,
 				503DC1971A0E26F100FAC45F /* Frameworks */,
 				503DC1981A0E26F100FAC45F /* Resources */,
+				503DC1D11A0E27B500FAC45F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				503DC1CC1A0E27B400FAC45F /* PBXTargetDependency */,
 			);
 			name = Cher;
 			productName = Cher;
@@ -152,6 +209,23 @@
 			productReference = 503DC1AF1A0E26F100FAC45F /* CherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		503DC1C21A0E27B400FAC45F /* CherExtention */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 503DC1CE1A0E27B500FAC45F /* Build configuration list for PBXNativeTarget "CherExtention" */;
+			buildPhases = (
+				503DC1BF1A0E27B400FAC45F /* Sources */,
+				503DC1C01A0E27B400FAC45F /* Frameworks */,
+				503DC1C11A0E27B400FAC45F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CherExtention;
+			productName = CherExtention;
+			productReference = 503DC1C31A0E27B400FAC45F /* CherExtention.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,6 +241,9 @@
 					503DC1AE1A0E26F100FAC45F = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 503DC1991A0E26F100FAC45F;
+					};
+					503DC1C21A0E27B400FAC45F = {
+						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -185,6 +262,7 @@
 			targets = (
 				503DC1991A0E26F100FAC45F /* Cher */,
 				503DC1AE1A0E26F100FAC45F /* CherTests */,
+				503DC1C21A0E27B400FAC45F /* CherExtention */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +282,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		503DC1C11A0E27B400FAC45F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503DC1CA1A0E27B400FAC45F /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +313,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		503DC1BF1A0E27B400FAC45F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503DC1C81A0E27B400FAC45F /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -234,6 +328,11 @@
 			isa = PBXTargetDependency;
 			target = 503DC1991A0E26F100FAC45F /* Cher */;
 			targetProxy = 503DC1B01A0E26F100FAC45F /* PBXContainerItemProxy */;
+		};
+		503DC1CC1A0E27B400FAC45F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 503DC1C21A0E27B400FAC45F /* CherExtention */;
+			targetProxy = 503DC1CB1A0E27B400FAC45F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Cher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Cher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,6 +491,30 @@
 			};
 			name = Release;
 		};
+		503DC1CF1A0E27B500FAC45F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CherExtention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		503DC1D01A0E27B500FAC45F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CherExtention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -415,6 +540,14 @@
 			buildConfigurations = (
 				503DC1BD1A0E26F100FAC45F /* Debug */,
 				503DC1BE1A0E26F100FAC45F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		503DC1CE1A0E27B500FAC45F /* Build configuration list for PBXNativeTarget "CherExtention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				503DC1CF1A0E27B500FAC45F /* Debug */,
+				503DC1D01A0E27B500FAC45F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
