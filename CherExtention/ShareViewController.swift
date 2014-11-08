@@ -7,31 +7,20 @@
 //
 
 import UIKit
-import Social
 import MobileCoreServices
 
-class ShareViewController: SLComposeServiceViewController {
+class ShareViewController: UIViewController {
 
-    override func isContentValid() -> Bool {
-        // Do validation of contentText and/or NSExtensionContext attachments here
-        return true
+    func finish() {
+        self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
     }
 
-    override func didSelectPost() {
-        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
-    
-        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
-        self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
-    }
+    // MARK: NSExtensionRequestHandling
 
-    override func configurationItems() -> [AnyObject]! {
-        return NSArray()
-    }
-    
-    override func viewDidLoad() {
-        var image: UIImage
-        
-        for item: AnyObject in self.extensionContext!.inputItems {
+    override func beginRequestWithExtensionContext(context: NSExtensionContext) {
+        super.beginRequestWithExtensionContext(context)
+
+        for item: AnyObject in context.inputItems {
             let inputItem = item as NSExtensionItem
             for provider: AnyObject in inputItem.attachments! {
                 let itemProvider = provider as NSItemProvider
@@ -40,14 +29,17 @@ class ShareViewController: SLComposeServiceViewController {
                         if image != nil {
                             NSOperationQueue.mainQueue().addOperationWithBlock {
                                 println(image as? NSURL)
+
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), { () -> Void in
+                                    self.finish()
+                                })
                             }
                         }
                     })
-                    
+
                     break
                 }
             }
         }
     }
-
 }
