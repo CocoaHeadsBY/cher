@@ -21,7 +21,7 @@ struct DropboxAuthorizator: Authorizator {
 struct DropboxCredential: Credential {
     
     var isAuthorized: Bool {
-        return SSKeychain.passwordForService("cher", account: "dropbox") != nil
+        return FDKeychain.itemForKey("dropbox", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", error: nil) != nil
     }
     
     func handleOpenURL(url: NSURL) -> Bool {
@@ -46,7 +46,7 @@ struct DropboxCredential: Credential {
     
     private func saveCredentials(params: [String: String]) {
         var error: NSErrorPointer = nil
-        let success = SSKeychain.setPassword(params["access_token"], forService: "cher", account: "dropbox", error: error)
+        let success = FDKeychain.saveItem(params["access_token"], forKey: "dropbox", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", withAccessibility: FDKeychainAccessibility.AccessibleWhenUnlocked, error: nil)
         assert(success)
     }
 }

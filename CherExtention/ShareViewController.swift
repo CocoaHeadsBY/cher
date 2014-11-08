@@ -29,6 +29,8 @@ class ShareViewController: SLComposeServiceViewController {
     }
     
     override func viewDidLoad() {
+        println(FDKeychain.itemForKey("dropbox", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", error: nil))
+
         var image: UIImage
         
         for item: AnyObject in self.extensionContext!.inputItems {
