@@ -13,6 +13,7 @@
 		2E93358B1A0E609C00BC6C56 /* Authorizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93358A1A0E609C00BC6C56 /* Authorizator.swift */; };
 		2EC2B0481A0E36BB00720C00 /* ShareServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2B0471A0E36BB00720C00 /* ShareServiceCell.swift */; };
 		2EC2B04A1A0E433800720C00 /* YandexAuthorizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2B0491A0E433800720C00 /* YandexAuthorizator.swift */; };
+		2EDB02191A0E831E00482136 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB02181A0E831E00482136 /* Extensions.swift */; };
 		503DC1A01A0E26F100FAC45F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DC19F1A0E26F100FAC45F /* AppDelegate.swift */; };
 		503DC1A21A0E26F100FAC45F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DC1A11A0E26F100FAC45F /* ViewController.swift */; };
 		503DC1A51A0E26F100FAC45F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503DC1A31A0E26F100FAC45F /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		2EC2B0471A0E36BB00720C00 /* ShareServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareServiceCell.swift; sourceTree = "<group>"; };
 		2EC2B0491A0E433800720C00 /* YandexAuthorizator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexAuthorizator.swift; sourceTree = "<group>"; };
 		2EC2B04B1A0E596A00720C00 /* Cher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cher-Bridging-Header.h"; sourceTree = "<group>"; };
+		2EDB02181A0E831E00482136 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		503DC19A1A0E26F100FAC45F /* Cher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		503DC19E1A0E26F100FAC45F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503DC19F1A0E26F100FAC45F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				2EC2B0491A0E433800720C00 /* YandexAuthorizator.swift */,
 				2E9335881A0E606B00BC6C56 /* DropboxAuthorizator.swift */,
 				2E93358A1A0E609C00BC6C56 /* Authorizator.swift */,
+				2EDB02181A0E831E00482136 /* Extensions.swift */,
 			);
 			path = Cher;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				503DC1A21A0E26F100FAC45F /* ViewController.swift in Sources */,
 				503DC1A01A0E26F100FAC45F /* AppDelegate.swift in Sources */,
 				2E93358B1A0E609C00BC6C56 /* Authorizator.swift in Sources */,
+				2EDB02191A0E831E00482136 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

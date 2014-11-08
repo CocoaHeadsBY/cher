@@ -8,7 +8,10 @@
 
 import UIKit
 
+let CherKeychainGroup = "by.cocoaheads.Cher"
+
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

@@ -19,14 +19,9 @@ struct YandexAuthorizator: Authorizator {
 }
 
 struct YandexCredential: Credential {
-    private func saveCredentials(params: [String: String]) {
-        var error: NSErrorPointer = nil
-        let success = FDKeychain.saveItem(params["access_token"], forKey: "yaDisk", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", withAccessibility: FDKeychainAccessibility.AccessibleWhenUnlocked, error: nil)
-        assert(success)
-    }
-    
+
     var isAuthorized: Bool {
-        return FDKeychain.itemForKey("yaDisk", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", error: nil) != nil
+        return FDKeychain.itemForKey("yaDisk", forService: "cher", inAccessGroup: CherKeychainGroup, error: nil) != nil
     }
     
     func handleOpenURL(url: NSURL) -> Bool {
@@ -36,17 +31,15 @@ struct YandexCredential: Credential {
         
         let params = url.fragment!
         
-        var result: Dictionary<String, String> = params.componentsSeparatedByString("&").reduce([:], combine: {acc, value in
-            let pair = value.componentsSeparatedByString("=")
-            if pair.count != 2 {
-                return acc
-            }
-            var result = acc
-            result.updateValue(pair.last!, forKey: pair.first!)
-            return result
-        })
-        saveCredentials(result)
+        saveCredentials(params.queryToParams())
         return true
     }
+    
+    private func saveCredentials(params: [String: String]) {
+        var error: NSErrorPointer = nil
+        let success = FDKeychain.saveItem(params["access_token"], forKey: "yaDisk", forService: "cher", inAccessGroup: CherKeychainGroup, withAccessibility: FDKeychainAccessibility.AccessibleWhenUnlocked, error: nil)
+        assert(success)
+    }
+    
 }
 
