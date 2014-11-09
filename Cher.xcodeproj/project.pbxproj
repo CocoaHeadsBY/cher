@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F262111A600372368F15F09 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A269D569090F58C2810D2C8B /* libPods.a */; };
 		26EC8C122BB4B6EC393AD08F /* libPods-CherExtention.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E70B4E6BE3EFF158CFAE32A1 /* libPods-CherExtention.a */; };
 		2E9335891A0E606B00BC6C56 /* DropboxAuthorizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9335881A0E606B00BC6C56 /* DropboxAuthorizator.swift */; };
 		2E93358B1A0E609C00BC6C56 /* Authorizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93358A1A0E609C00BC6C56 /* Authorizator.swift */; };
@@ -83,12 +82,9 @@
 		503DC1C71A0E27B400FAC45F /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		62FFC346048B14C80A7A623A /* Pods-CherExtention.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CherExtention.release.xcconfig"; path = "Pods/Target Support Files/Pods-CherExtention/Pods-CherExtention.release.xcconfig"; sourceTree = "<group>"; };
-		8B1273FFC896BEB0ECFF9CC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		91DAC7532F06957598D058F5 /* Pods-CherExtention.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CherExtention.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CherExtention/Pods-CherExtention.debug.xcconfig"; sourceTree = "<group>"; };
 		97F86135F907B0FA3D2DB540 /* Pods-Cher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cher/Pods-Cher.release.xcconfig"; sourceTree = "<group>"; };
-		A269D569090F58C2810D2C8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFAD0500A1EFB082A950D3C9 /* libPods-Cher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B079DB7FDEC0ADDC7BBBA2B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E70B4E6BE3EFF158CFAE32A1 /* libPods-CherExtention.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CherExtention.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F262111A600372368F15F09 /* libPods.a in Frameworks */,
 				5C084E94B176EA8F73C7EFFC /* libPods-Cher.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +118,6 @@
 		36EEE9F2B2F130E7E68FA3C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A269D569090F58C2810D2C8B /* libPods.a */,
 				AFAD0500A1EFB082A950D3C9 /* libPods-Cher.a */,
 				E70B4E6BE3EFF158CFAE32A1 /* libPods-CherExtention.a */,
 			);
@@ -133,8 +127,6 @@
 		40E6B6AD4B7697B6B9E8235E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8B1273FFC896BEB0ECFF9CC8 /* Pods.debug.xcconfig */,
-				B079DB7FDEC0ADDC7BBBA2B6 /* Pods.release.xcconfig */,
 				91DAC7532F06957598D058F5 /* Pods-CherExtention.debug.xcconfig */,
 				62FFC346048B14C80A7A623A /* Pods-CherExtention.release.xcconfig */,
 				104B84E9C10B7A45325CAA3B /* Pods-Cher.debug.xcconfig */,
