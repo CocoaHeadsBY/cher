@@ -22,6 +22,8 @@
 		503DC1C81A0E27B400FAC45F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DC1C71A0E27B400FAC45F /* ShareViewController.swift */; };
 		503DC1CA1A0E27B400FAC45F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */; };
 		503DC1CD1A0E27B400FAC45F /* CherExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 503DC1C31A0E27B400FAC45F /* CherExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		50F9A2FD1A0F74B300567AB1 /* YandexDiskUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9A2FC1A0F74B300567AB1 /* YandexDiskUploader.swift */; };
+		50F9A3001A0F74F500567AB1 /* Uploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9A2FF1A0F74F500567AB1 /* Uploader.swift */; };
 		5C084E94B176EA8F73C7EFFC /* libPods-Cher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFAD0500A1EFB082A950D3C9 /* libPods-Cher.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		503DC1C61A0E27B400FAC45F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503DC1C71A0E27B400FAC45F /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		50F9A2FC1A0F74B300567AB1 /* YandexDiskUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexDiskUploader.swift; sourceTree = "<group>"; };
+		50F9A2FF1A0F74F500567AB1 /* Uploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uploader.swift; sourceTree = "<group>"; };
 		62FFC346048B14C80A7A623A /* Pods-CherExtention.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CherExtention.release.xcconfig"; path = "Pods/Target Support Files/Pods-CherExtention/Pods-CherExtention.release.xcconfig"; sourceTree = "<group>"; };
 		91DAC7532F06957598D058F5 /* Pods-CherExtention.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CherExtention.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CherExtention/Pods-CherExtention.debug.xcconfig"; sourceTree = "<group>"; };
 		97F86135F907B0FA3D2DB540 /* Pods-Cher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cher/Pods-Cher.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */,
 				503DC1C71A0E27B400FAC45F /* ShareViewController.swift */,
 				503DC1C51A0E27B400FAC45F /* Supporting Files */,
+				50F9A2FE1A0F74CA00567AB1 /* Uploader */,
 			);
 			path = CherExtention;
 			sourceTree = "<group>";
@@ -222,6 +227,15 @@
 				503DC1C61A0E27B400FAC45F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50F9A2FE1A0F74CA00567AB1 /* Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				50F9A2FF1A0F74F500567AB1 /* Uploader.swift */,
+				50F9A2FC1A0F74B300567AB1 /* YandexDiskUploader.swift */,
+			);
+			name = Uploader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,7 +470,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F9A3001A0F74F500567AB1 /* Uploader.swift in Sources */,
 				503DC1C81A0E27B400FAC45F /* ShareViewController.swift in Sources */,
+				50F9A2FD1A0F74B300567AB1 /* YandexDiskUploader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

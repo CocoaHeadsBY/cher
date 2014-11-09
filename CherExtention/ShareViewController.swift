@@ -54,7 +54,9 @@ enum Result<T, E> {
 
 class ShareViewController: UIViewController {
     let s = { (r: NSURL) -> () in
-
+        // TODO: put the url into copy-paste buffer
+        // update status label
+        // call the line below
         //self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
     }
 
