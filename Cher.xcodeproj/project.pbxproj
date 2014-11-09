@@ -127,10 +127,10 @@
 		40E6B6AD4B7697B6B9E8235E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				91DAC7532F06957598D058F5 /* Pods-CherExtention.debug.xcconfig */,
-				62FFC346048B14C80A7A623A /* Pods-CherExtention.release.xcconfig */,
 				104B84E9C10B7A45325CAA3B /* Pods-Cher.debug.xcconfig */,
 				97F86135F907B0FA3D2DB540 /* Pods-Cher.release.xcconfig */,
+				91DAC7532F06957598D058F5 /* Pods-CherExtention.debug.xcconfig */,
+				62FFC346048B14C80A7A623A /* Pods-CherExtention.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -139,12 +139,12 @@
 			isa = PBXGroup;
 			children = (
 				503DC19C1A0E26F100FAC45F /* Cher */,
-				503DC1B21A0E26F100FAC45F /* CherTests */,
-				503DC1C41A0E27B400FAC45F /* CherExtention */,
-				503DC19B1A0E26F100FAC45F /* Products */,
 				2EC2B04B1A0E596A00720C00 /* Cher-Bridging-Header.h */,
-				40E6B6AD4B7697B6B9E8235E /* Pods */,
+				503DC1C41A0E27B400FAC45F /* CherExtention */,
+				503DC1B21A0E26F100FAC45F /* CherTests */,
 				36EEE9F2B2F130E7E68FA3C8 /* Frameworks */,
+				40E6B6AD4B7697B6B9E8235E /* Pods */,
+				503DC19B1A0E26F100FAC45F /* Products */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -163,18 +163,18 @@
 		503DC19C1A0E26F100FAC45F /* Cher */ = {
 			isa = PBXGroup;
 			children = (
-				2E93358C1A0E790B00BC6C56 /* Cher.entitlements */,
 				503DC19F1A0E26F100FAC45F /* AppDelegate.swift */,
-				503DC1A11A0E26F100FAC45F /* ViewController.swift */,
-				503DC1A31A0E26F100FAC45F /* Main.storyboard */,
+				2E93358A1A0E609C00BC6C56 /* Authorizator.swift */,
+				2E93358C1A0E790B00BC6C56 /* Cher.entitlements */,
+				2E9335881A0E606B00BC6C56 /* DropboxAuthorizator.swift */,
+				2EDB02181A0E831E00482136 /* Extensions.swift */,
 				503DC1A61A0E26F100FAC45F /* Images.xcassets */,
 				503DC1A81A0E26F100FAC45F /* LaunchScreen.xib */,
-				503DC19D1A0E26F100FAC45F /* Supporting Files */,
+				503DC1A31A0E26F100FAC45F /* Main.storyboard */,
 				2EC2B0471A0E36BB00720C00 /* ShareServiceCell.swift */,
+				503DC19D1A0E26F100FAC45F /* Supporting Files */,
+				503DC1A11A0E26F100FAC45F /* ViewController.swift */,
 				2EC2B0491A0E433800720C00 /* YandexAuthorizator.swift */,
-				2E9335881A0E606B00BC6C56 /* DropboxAuthorizator.swift */,
-				2E93358A1A0E609C00BC6C56 /* Authorizator.swift */,
-				2EDB02181A0E831E00482136 /* Extensions.swift */,
 			);
 			path = Cher;
 			sourceTree = "<group>";
@@ -190,8 +190,8 @@
 		503DC1B21A0E26F100FAC45F /* CherTests */ = {
 			isa = PBXGroup;
 			children = (
-				503DC1B51A0E26F100FAC45F /* YandexAuthorizatorTests.swift */,
 				503DC1B31A0E26F100FAC45F /* Supporting Files */,
+				503DC1B51A0E26F100FAC45F /* YandexAuthorizatorTests.swift */,
 			);
 			path = CherTests;
 			sourceTree = "<group>";
@@ -208,8 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				2E93358D1A0E794700BC6C56 /* CherExtention.entitlements */,
-				503DC1C71A0E27B400FAC45F /* ShareViewController.swift */,
 				503DC1C91A0E27B400FAC45F /* MainInterface.storyboard */,
+				503DC1C71A0E27B400FAC45F /* ShareViewController.swift */,
 				503DC1C51A0E27B400FAC45F /* Supporting Files */,
 			);
 			path = CherExtention;
