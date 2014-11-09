@@ -9,10 +9,61 @@
 import UIKit
 import MobileCoreServices
 
-class ShareViewController: UIViewController {
+class Box<T> {
+    var val : T
+    init(v : T) {
+        val = v
+    }
+}
 
-    func finish() {
-        self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
+enum Result<T, E> {
+    case Success(Box<T>)
+    case Failure(Box<E>)
+    func process<U>(s: T -> U, f: E -> U) -> U {
+        switch (self) {
+        case let .Success(val):
+            return s(val.val)
+        case let .Failure(err):
+            return f(err.val)
+        }
+    }
+    static func success(val: T) -> Result<T, E> {
+        return .Success(Box(v: val))
+    }
+    static func faliture(err: E) -> Result<T, E> {
+        return .Failure(Box(v: err))
+    }
+
+    static func createResult(val: T, _ err: E!) ->Result<T, E> {
+        if err == nil {
+            return self<T, E>.success(val)
+        }
+        else {
+            return self<T, E>.faliture(err)
+        }
+    }
+    func map<U>(f: (T) -> U) -> Result<U, E> {
+        switch (self) {
+            case let .Success(val):
+                return Result<U, E>.success(f(val.val))
+            case let .Failure(err):
+                return Result<U, E>.faliture(err.val)
+        }
+    }
+}
+
+class ShareViewController: UIViewController {
+    let s = { (r: NSURL) -> () in
+
+        //self.extensionContext?.completeRequestReturningItems(nil, completionHandler: nil)
+    }
+
+    let f = { (e: NSError) -> () in
+        print("Error:")
+    }
+
+    func finish(result: Result<NSURL, NSError>) {
+        result.process(s, f)
     }
 
     // MARK: NSExtensionRequestHandling
@@ -22,25 +73,17 @@ class ShareViewController: UIViewController {
         println(FDKeychain.itemForKey("dropbox", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", error: nil))
 
         super.beginRequestWithExtensionContext(context)
+        let kImageType : NSString = kUTTypeImage as NSString;
 
-        for item: AnyObject in context.inputItems {
-            let inputItem = item as NSExtensionItem
-            for provider: AnyObject in inputItem.attachments! {
-                let itemProvider = provider as NSItemProvider
-                if itemProvider.hasItemConformingToTypeIdentifier(kUTTypeImage as NSString) {
-                    itemProvider.loadItemForTypeIdentifier(kUTTypeImage as NSString, options: nil, completionHandler: { (image, error) in
-                        if image != nil {
-                            NSOperationQueue.mainQueue().addOperationWithBlock {
-                                println(image as? NSURL)
 
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), { () -> Void in
-                                    self.finish()
-                                })
-                            }
+        for inputItem: NSExtensionItem in context.inputItems as [NSExtensionItem] {
+            for itemProvider: NSItemProvider in inputItem.attachments! as [NSItemProvider] {
+                if itemProvider.hasItemConformingToTypeIdentifier(kImageType) {
+                    itemProvider.loadItemForTypeIdentifier(kImageType, options: nil) { (image, error) in
+                        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                            self.finish(Result.createResult(image, error).map { $0 as NSURL })
                         }
-                    })
-
-                    break
+                    }
                 }
             }
         }
