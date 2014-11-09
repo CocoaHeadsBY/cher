@@ -1,0 +1,1 @@
+PODS_CHEREXTENTION_FDKEYCHAIN_OTHER_LDFLAGS = -framework "Foundation" -framework "Security"
