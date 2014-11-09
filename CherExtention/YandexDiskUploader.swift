@@ -9,18 +9,20 @@
 import Foundation
 
 class YandexDiskUploader : NSObject, Uploader, NSURLSessionDelegate {
-    var session: NSURLSession?
+    var session: NSURLSession
+    var token: String
 
     // MARK - Uploader
 
-    required init(credentials aCredentials: String) {
+    required init(token: String) {
+        self.token = token
+        session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: nil, delegateQueue: nil)
         super.init()
-        session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
     }
 
-    func uploadFile(fileUrl: NSURL, completion: Result<String, NSError>) {
+    func uploadFile(fileUrl: NSURL, completionHandler: (Result<String, NSError>) -> ()) {
         // TODO
-        // 1. request upload url and method (Source: http://api.yandex.com/disk/api/reference/upload.xml)
+        // 1. request upload url and method (Source: http://api.yandex.com/disk/api/reference/upload.xml )
         // https://cloud-api.yandex.net/v1/disk/resources/upload?path=<path where you want to upload the file>
         // Authorization: OAuth 0c4181a7c2cf4521964a72ff57a34a07
         //
@@ -33,10 +35,22 @@ class YandexDiskUploader : NSObject, Uploader, NSURLSessionDelegate {
         //   "templated": false
         // }
 
+        let fileName = self.uniqueFilenameForFileAtURL(fileUrl)
+        let url = NSURL(string: "https://cloud-api.yandex.net/v1/disk/resources/upload?path=\(fileName)")
+        var request = NSMutableURLRequest(URL: url!)
+        request.setValue("OAuth \(self.token)", forHTTPHeaderField: "Authorization")
+        let task = self.session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            // TODO: handle error
+            var s: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+            println(s.objectForKey("message")) // right now we are getting error. Probaby there is something wrong with permissions
+        })
+
+        task.resume()
+
         // 2. Upload to the URL we got from step 1. Method PUT.
         // No OAuth headers
 
-        // 3. Make file public and get the link to it. (Source: http://api.yandex.com/disk/api/reference/publish.xml#publish-q)
+        // 3. Make file public and get the link to it. (Source: http://api.yandex.com/disk/api/reference/publish.xml#publish-q )
         // PUT https://cloud-api.yandex.net/v1/disk/resources/publish?path=<path to resource being published>
         // Authorization: OAuth 0c4181a7c2cf4521964a72ff57a34a07
         //
@@ -48,5 +62,16 @@ class YandexDiskUploader : NSObject, Uploader, NSURLSessionDelegate {
         // }
 
         // Return public link to the file or error from any of the steps described above.
+    }
+
+    private
+
+    func uniqueFilenameForFileAtURL(url: NSURL) -> String {
+        var ext: String = url.pathExtension
+        if ext.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+            ext = ".\(ext)" // we want to append extension only if it exists
+        }
+
+        return "\(NSProcessInfo.processInfo().globallyUniqueString)\(ext)"
     }
 }

@@ -37,7 +37,7 @@ struct YandexCredential: Credential {
     
     private func saveCredentials(params: [String: String]) {
         var error: NSErrorPointer = nil
-        let success = FDKeychain.saveItem(params["access_token"], forKey: "yaDisk", forService: "cher", inAccessGroup: CherKeychainGroup, withAccessibility: FDKeychainAccessibility.AccessibleWhenUnlocked, error: nil)
+        let success: Bool = FDKeychain.saveItem(params["access_token"], forKey: "yaDisk", forService: "cher", inAccessGroup: CherKeychainGroup, withAccessibility: FDKeychainAccessibility.AccessibleWhenUnlocked, error: nil)
         assert(success)
     }
     

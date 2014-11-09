@@ -53,6 +53,13 @@ enum Result<T, E> {
 }
 
 class ShareViewController: UIViewController {
+
+    lazy var uploader: Uploader = {
+        let yandexToken = FDKeychain.itemForKey("dropbox", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", error: nil) as? String
+        return YandexDiskUploader(token: "23cef53ca7e64384a16c7eacae2efe13") // XXX
+        // return YandexDiskUploader(token: yandexToken)
+        }()
+
     let s = { (r: NSURL) -> () in
         // TODO: put the url into copy-paste buffer
         // update status label
@@ -71,20 +78,16 @@ class ShareViewController: UIViewController {
     // MARK: NSExtensionRequestHandling
 
     override func beginRequestWithExtensionContext(context: NSExtensionContext) {
-        //for testing
-        println(FDKeychain.itemForKey("dropbox", forService: "cher", inAccessGroup: "by.cocoaheads.Cher", error: nil))
-
         super.beginRequestWithExtensionContext(context)
         let kImageType : NSString = kUTTypeImage as NSString;
-
 
         for inputItem: NSExtensionItem in context.inputItems as [NSExtensionItem] {
             for itemProvider: NSItemProvider in inputItem.attachments! as [NSItemProvider] {
                 if itemProvider.hasItemConformingToTypeIdentifier(kImageType) {
                     itemProvider.loadItemForTypeIdentifier(kImageType, options: nil) { (image, error) in
-                        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        self.uploader.uploadFile(image as NSURL, completionHandler: { (result) -> () in
                             self.finish(Result.createResult(image, error).map { $0 as NSURL })
-                        }
+                        })
                     }
                 }
             }

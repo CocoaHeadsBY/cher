@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Uploader {
-    init(credentials aCredentials: String)
-    func uploadFile(fileUrl: NSURL, completion: Result<String, NSError>)
+    init(token: String)
+    func uploadFile(fileUrl: NSURL, completionHandler: (Result<String, NSError>) -> () )
 }
